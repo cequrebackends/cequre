@@ -1,0 +1,30 @@
+config {
+  output: "_generated";
+
+  core: {
+    api: {
+      prefix: "/api";
+    }
+  };
+
+  security: {
+    cors: {
+      origin: ["*"];
+      credentials: true;
+    };
+    auth: {
+      strategies: ["jwt"];
+      jwt: {
+        accessTokenExpiry: "15m";
+        refreshTokenExpiry: "7d";
+      }
+    }
+  };
+
+  monitoring: {
+    enabled: true;
+    healthCheck: {
+      path: "/health";
+    }
+  };
+}

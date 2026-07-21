@@ -1,6 +1,64 @@
-# Turborepo starter
+# Cequre
 
-This Turborepo starter is maintained by the Turborepo core team.
+Cequre is a backend framework. This repository is a Turborepo containing the
+`app` (frontend) and `backend` (cequre server) example workspaces.
+
+## Install the `cequre` CLI
+
+The `cequre` CLI is distributed as a native binary from the
+[latest GitHub release](https://github.com/cequrebackends/cequre/releases/latest).
+The install script downloads the binary for your OS/arch and places it in
+`~/.cequre/bin`, then adds that directory to your `PATH`.
+
+Run the official install script:
+
+```sh
+curl -fsSL https://cequre.io/install.sh | sh
+```
+
+> The installer prints the exact line it adds to your shell rc file
+> (e.g. `~/.zshrc`, `~/.bashrc`). If `cequre` is not found in a new terminal,
+> either `source` your rc file or restart the shell.
+
+Verify the install:
+
+```sh
+cequre --version
+```
+
+To pin a specific version (e.g. for CI), set `CEQURE_VERSION` before running
+the script:
+
+```sh
+CEQURE_VERSION=0.12.0 curl -fsSL https://cequrebackends.com/install.sh | sh
+```
+
+### Manual install (alternative)
+
+If you prefer to install the binary yourself, download the asset for your
+platform from the [latest release page](https://github.com/cequrebackends/cequre/releases/latest),
+make it executable, and put it on your `PATH`:
+
+```sh
+# macOS (Apple Silicon)
+curl -L -o cequre https://github.com/cequrebackends/cequre/releases/latest/download/cequre-darwin-arm64
+chmod +x cequre
+sudo mv cequre /usr/local/bin/cequre
+
+# macOS (Intel)
+curl -L -o cequre https://github.com/cequrebackends/cequre/releases/latest/download/cequre-darwin-x64
+chmod +x cequre
+sudo mv cequre /usr/local/bin/cequre
+
+# Linux (x64)
+curl -L -o cequre https://github.com/cequrebackends/cequre/releases/latest/download/cequre-linux-x64
+chmod +x cequre
+sudo mv cequre /usr/local/bin/cequre
+```
+
+Pick a directory that is already on your `PATH` (e.g. `/usr/local/bin`,
+`~/.local/bin`, or `~/bin` — and `export PATH="$HOME/bin:$PATH"` in your
+shell rc if it isn't). Confirm with `which cequre`.
 
 ## Using this example
 
