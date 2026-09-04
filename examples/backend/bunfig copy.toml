@@ -1,5 +1,0 @@
-[install.scopes]
-"@cequrebackends" = { url = "https://npm.pkg.github.com/" }
-
-[publish.scopes]
-"@cequrebackends" = { url = "https://npm.pkg.github.com/" }
