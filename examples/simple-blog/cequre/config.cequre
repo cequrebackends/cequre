@@ -1,0 +1,84 @@
+config {
+  output: "_generated";
+
+  core: {
+    api: {
+      prefix: "/api";
+    };
+    graphql: {
+      enabled: true;
+      playground: true;
+      introspection: true;
+    };
+  };
+
+  security: {
+    cors: {
+      origin: ["*"];
+      credentials: true;
+    };
+    auth: {
+      strategies: ["jwt"];
+      jwt: {
+        accessTokenExpiry: "15m";
+        refreshTokenExpiry: "7d";
+      }
+    }
+  };
+
+  monitoring: {
+    enabled: true;
+    apiKey: env("MONITORING_API_KEY");
+    healthCheck: {
+      path: "/health";
+    }
+    // exporters: {
+    //   otel: { endpoint: env("OTEL_ENDPOINT"); serviceName: "my-app" };
+    //   webhook: [
+    //     { url: env("MONITORING_WEBHOOK_URL"); filter: ["error", "fatal"] };
+    //     { url: env("MONITORING_WEBHOOK_URL_2"); filter: ["fatal"] };
+    //   ];
+    // }
+  };
+
+  adminUi: {
+    collection: "admins";
+  };
+}
+
+collection users {
+  auth: true;
+
+  fields: {
+    name: text;
+    email: email @unique;
+    password: password;
+    role: select("admin", "user") @default("user");
+  }
+
+  access: {
+    read: true;
+    create: true;
+    update: user.id == id || user.role == "admin";
+    delete: user.role == "admin";
+  }
+}
+
+collection admins {
+  auth: true;
+
+  fields: {
+    name: text;
+    email: email @unique;
+    password: password;
+    role: select("super", "editor") @default("editor");
+    avatar: text @optional;
+  }
+
+  access: {
+    read: user.role == "super";
+    create: user.role == "super";
+    update: user.id == id || user.role == "super";
+    delete: user.role == "super";
+  }
+}

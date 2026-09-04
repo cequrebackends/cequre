@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "paths": {
+      "cequre-ts": [
+        "./cequre/_generated/runtime/cequre"
+      ]
+    }
+  },
+  "files": [],
+  "references": [
+    {
+      "path": "./tsconfig.app.json"
+    },
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ]
+}

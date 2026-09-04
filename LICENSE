@@ -1,0 +1,50 @@
+Cequre Software License
+
+Copyright (c) 2026 Cequre Backends. All rights reserved.
+
+This software, compiler, CLI, and associated runtime engine (the "Software")
+are proprietary to Cequre Backends.
+
+1. FREE USE GRANT (THE ENGINE)
+Subject to the terms of this License, Cequre Backends grants you a perpetual,
+worldwide, non-exclusive, royalty-free license to install, run, and execute
+the Software locally on your workstations or within your private build
+pipelines solely to develop, compile, and maintain applications, provided that:
+  (a) You are an individual, solo developer, researcher, or student; OR
+  (b) You are a business entity or organization with fewer than ten (10) total
+      employees and contractors ("Staff").
+
+2. UNRESTRICTED OUTPUT RIGHTS (THE COMPILED APPLICATIONS)
+All code, artifacts, database schemas, and application server runtimes generated
+or compiled by the Software ("Output") are your sole property. You may freely
+deploy, host, license, distribute, and commercialize the Output for yourself or
+for any number of clients and third parties without restriction, royalty, or
+client-seat limitations.
+
+3. PROHIBITION ON HOSTED SERVICES (NO HOSTED COMPILER OR BAAS)
+You may not:
+  (a) Host, deploy, or expose the Software (including the CLI, DSL compiler,
+      or developer tooling) as a cloud-hosted service, multi-tenant platform,
+      backend-as-a-service (BaaS), platform-as-a-service (PaaS), or online
+      code generation service where third parties access the Software to design,
+      compile, or manage their own backends.
+  (b) Sublicense, resell, or distribute the Software itself (as opposed to its
+      compiled Output).
+  (c) Reverse engineer, decompile, or disassemble the Software, except to the
+      extent that applicable law expressly permits.
+  (d) Remove, alter, or obscure any copyright notices, proprietary legends, or
+      trademark notices in the Software.
+
+4. COMMERCIAL LICENSE REQUIREMENT (10+ STAFF)
+Use of the Software by any organization or business entity with ten (10) or more
+total employees or contractors requires a separate commercial enterprise license
+from Cequre Backends.
+
+5. DISCLAIMER OF WARRANTY
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT, OR OTHERWISE, ARISING FROM,
+OUT OF, OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.

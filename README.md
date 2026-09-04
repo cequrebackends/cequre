@@ -1,217 +1,286 @@
 # Cequre
 
-Cequre is a backend framework. This repository is a Turborepo containing the
-`app` (frontend) and `backend` (cequre server) example workspaces.
+> **AI-Native, Schema-First Backend Engine for Bun.**  
+> Write your schema once. Compile a typed, secure, production-ready backend in seconds on native Bun with zero-migration database sync, built-in MCP agent integration, and an instant Admin Console.
 
-## Install the `cequre` CLI
+[![Website](https://img.shields.io/badge/website-cequrebackends.com-blue)](https://cequrebackends.com)
+[![Documentation](https://img.shields.io/badge/docs-docs.cequrebackends.com-purple)](https://docs.cequrebackends.com)
+[![License](https://img.shields.io/badge/license-Cequre%20Software%20License-black)](LICENSE)
 
-The `cequre` CLI is distributed as a native binary from the
-[latest GitHub release](https://github.com/cequrebackends/cequre/releases/latest).
-The install script downloads the binary for your OS/arch and places it in
-`~/.cequre/bin`, then adds that directory to your `PATH`.
+---
+
+## About This Repository
+
+This repository (`cequre-public`) serves as the official public distribution and resource hub for Cequre. Here you will find:
+
+- **Official Release Assets**: Standalone binary distributions and installation scripts for the `cequre` CLI.
+<!-- - **Example Applications & Demos**: Ready-to-run reference implementations exploring authentication, streaming, file uploads, and full-stack integrations. -->
+- **Community Templates**: Starters configured with best practices for rapid backend development on Bun.
+
+---
+
+## Quickstart
+
+<!--
+### 1. Install the `cequre` CLI
+
+The `cequre` CLI is distributed as a single native binary with zero external dependencies.
 
 Run the official install script:
 
 ```sh
-curl -fsSL https://cequre.io/install.sh | sh
+curl -fsSL https://cequrebackends.com/install.sh | sh
 ```
 
-> The installer prints the exact line it adds to your shell rc file
-> (e.g. `~/.zshrc`, `~/.bashrc`). If `cequre` is not found in a new terminal,
-> either `source` your rc file or restart the shell.
-
-Verify the install:
+Verify the installation:
 
 ```sh
 cequre --version
 ```
 
-To pin a specific version (e.g. for CI), set `CEQURE_VERSION` before running
-the script:
+To pin a specific version (e.g., in CI/CD pipelines):
 
 ```sh
 CEQURE_VERSION=0.12.0 curl -fsSL https://cequrebackends.com/install.sh | sh
 ```
 
-### Manual install (alternative)
+-->
 
-If you prefer to install the binary yourself, download the asset for your
-platform from the [latest release page](https://github.com/cequrebackends/cequre/releases/latest),
-make it executable, and put it on your `PATH`:
+#### Manual Download
+
+If you prefer to download binaries manually, assets for each supported platform are available on the [Latest Releases](https://github.com/cequrebackends/cequre/releases/latest) page:
 
 ```sh
-# macOS (Apple Silicon)
+# BETA COMING SOON
+```
+
+<!--
+```sh
+# macOS (Apple Silicon - M1/M2/M3/M4)
 curl -L -o cequre https://github.com/cequrebackends/cequre/releases/latest/download/cequre-darwin-arm64
-chmod +x cequre
-sudo mv cequre /usr/local/bin/cequre
+chmod +x cequre && sudo mv cequre /usr/local/bin/cequre
 
 # macOS (Intel)
 curl -L -o cequre https://github.com/cequrebackends/cequre/releases/latest/download/cequre-darwin-x64
-chmod +x cequre
-sudo mv cequre /usr/local/bin/cequre
+chmod +x cequre && sudo mv cequre /usr/local/bin/cequre
 
 # Linux (x64)
 curl -L -o cequre https://github.com/cequrebackends/cequre/releases/latest/download/cequre-linux-x64
-chmod +x cequre
-sudo mv cequre /usr/local/bin/cequre
+chmod +x cequre && sudo mv cequre /usr/local/bin/cequre
 ```
 
-Pick a directory that is already on your `PATH` (e.g. `/usr/local/bin`,
-`~/.local/bin`, or `~/bin` — and `export PATH="$HOME/bin:$PATH"` in your
-shell rc if it isn't). Confirm with `which cequre`.
 
-## Using this example
+-->
 
-Run the following command:
+### 2. Create and Run a Project
+
+Scaffold a new Cequre backend project in seconds:
 
 ```sh
-npx create-turbo@latest
+# Initialize a new project
+cequre init my-backend
+
+# Move into the project directory
+cd my-backend
+
+# Start the live development server
+cequre dev
 ```
 
-## What's inside?
+Your server will boot immediately on native Bun with:
 
-This Turborepo includes the following packages/apps:
+- **REST & OpenAPI**: Interactive API docs at `/api/docs`.
+- **GraphQL**: Schema explorer and GraphiQL IDE at `/graphql`.
+- **Admin Console**: Built-in management interface at `/__admin`.
+- **MCP Server**: Live Model Context Protocol endpoint for autonomous AI agents.
 
-### Apps and Packages
+---
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
+<!--
+## Explore Examples
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+The [`examples/`](./examples) directory contains self-contained reference implementations demonstrating how to integrate Cequre with modern tools and workflows:
 
-### Utilities
+| Example                                                       | Description                                                                      | Tech Stack               |
+| ------------------------------------------------------------- | -------------------------------------------------------------------------------- | ------------------------ |
+| [**auth-with-better-auth**](./examples/auth-with-better-auth) | Modern authentication, session handling, and user verification with Better Auth  | Cequre, Better Auth, Bun |
+| [**media-stream**](./examples/media-stream)                   | High-performance media streaming, chunked uploads, and local/S3 storage handling | Cequre, Bun, Storage     |
 
-This Turborepo has some additional tools already setup for you:
+### Running an Example Locally
 
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
-
-### Build
-
-To build all apps and packages, run the following command:
-
-With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended):
+Every example is powered by [Bun](https://bun.com):
 
 ```sh
-cd my-turborepo
-turbo build
+# 1. Navigate to the example folder
+cd examples/auth-with-better-auth
+
+# 2. Install dependencies
+bun install
+
+# 3. Start the application
+bun run dev
 ```
 
-Without global `turbo`, use your package manager:
+---
+-->
 
-```sh
-cd my-turborepo
-npx turbo build
-bun dlx turbo build
-bun exec turbo build
+## Why Cequre?
+
+Cequre eliminates backend boilerplate by establishing your declarative schema as the single source of truth for your entire application stack.
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                    schema.cequre                            │
+│           (Data Models, Policies, Relations)                │
+└──────────────────────────────┬──────────────────────────────┘
+                               │
+                      cequre dev / generate
+                               │
+                               ▼
+┌─────────────────────────────────────────────────────────────┐
+│                  Universal AST (schema.json)                 │
+└──────┬───────────────────────┬───────────────────────┬──────┘
+       │                       │                       │
+       ▼                       ▼                       ▼
+┌──────────────┐        ┌──────────────┐        ┌─────────────┐
+│   REST API   │        │   GraphQL    │        │  MCP Server │
+│   & OpenAPI  │        │   Endpoint   │        │  (AI Agents)│
+└──────────────┘        └──────────────┘        └─────────────┘
 ```
 
-You can build a specific package by using a [filter](https://turborepo.dev/docs/crafting-your-repository/running-tasks#using-filters):
+- **Schema-First Engine**: Declare collections, relations, and security policies in clean `.cequre` files. The compiler handles validation, routing, and typing.
+- **Zero-Migration Database Sync**: Cequre automatically synchronizes your database schema on boot across SQLite, PostgreSQL, Turso (libSQL), SurrealDB, and MongoDB. No manual migration files needed.
+- **AI-Native & MCP-First**: Includes a native Model Context Protocol (MCP) server so coding agents (Cursor, Claude, Windsurf, Antigravity) can inspect, query, and modify your backend architecture safely.
+- **Built for Bun**: Sub-millisecond route dispatch and native streaming I/O powered directly by `Bun.serve`.
+- **Granular Access Control**: Declarative deny-by-default permission model with customizable TypeScript hooks (`before` / `after` CRUD).
 
-With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed:
+---
 
-```sh
-turbo build --filter=docs
+## Schema Syntax Preview
+
+Here is how simple it is to define a secure, production-grade collection in `.cequre`:
+
+```cequre
+collection posts {
+  // Field definitions
+  fields: {
+    title: text;
+    slug: text @unique;
+    content: textarea @optional;
+    published: boolean @default(false);
+    author: relationship("users");
+  }
+
+  // Granular Access Control (deny-by-default)
+  access: {
+    read: true;
+    create: user != null;
+    update: user.id == author || user.role == "admin";
+    delete: user.role == "admin";
+  }
+
+  // Real-time Event Broadcaster
+  realtime: {
+    ws: ["create", "update", "delete"];
+    sse: true;
+  }
+}
 ```
 
-Without global `turbo`:
+Once defined, Cequre instantly generates:
 
-```sh
-npx turbo build --filter=docs
-bun exec turbo build --filter=docs
-bun exec turbo build --filter=docs
+1. Typed REST CRUD endpoints (`GET /api/posts`, `POST /api/posts`, etc.).
+2. GraphQL queries and mutations with relation traversal.
+3. Database table definitions and foreign key constraints.
+4. Auto-enforced authorization rules.
+5. OpenAPI / Swagger documentation.
+
+---
+
+## Lean Configuration (`config.cequre`)
+
+Define your backend infrastructure, security perimeter, and management consoles declaratively alongside your schema with a lean `config` block:
+
+```cequre
+config {
+  // Core runtime settings
+  core: {
+    api: { prefix: "/api"; };
+    openapi: { enabled: true; path: "/api/docs"; };
+    graphql: { enabled: true; path: "/graphql"; };
+  }
+
+  // Security perimeter & authentication
+  security: {
+    auth: {
+      strategies: ["jwt"];
+      jwt: {
+        accessTokenExpiry: "15m";
+        refreshTokenExpiry: "7d";
+      };
+    };
+
+    cors: {
+      origin: ["*"];
+      credentials: true;
+    };
+
+    rateLimit: {
+      read: { max: 100; window: "1m"; };
+      write: { max: 20; window: "1m"; };
+    };
+
+    headers: { enabled: true; };
+    secrets: { enabled: true; };
+    audit: { enabled: true; };
+  }
+
+  // Realtime subscription transport
+  realtime: {
+    enabled: true;
+    ws: true;
+    sse: true;
+    durableStream: false;
+    secure: true;
+  }
+
+  // Live telemetry & health monitoring
+  monitoring: {
+    enabled: true;
+    apiKey: env("MONITORING_API_KEY");
+    healthCheck: {
+      enabled: true;
+      path: "/health";
+      requiresAuth: false;
+    };
+    requestId: { enabled: true; };
+  }
+
+  // Sealed Platform Admin Console
+  adminUi: {
+    enabled: true;
+    collection: "admins";
+    title: "Cequre Admin Console";
+  }
+}
 ```
 
-### Develop
+- **`core`**: Configures route prefixing, OpenAPI / Scalar interactive documentation, and native GraphQL engine settings.
+- **`security`**: Hardens the global perimeter with JWT session management, CORS policies, KV-backed read/write rate limiting, security headers, secret protection, and tamper-evident audit logging.
+- **`realtime`**: Powers live change feeds across native WebSockets (`/api/ws`), Server-Sent Events (`/api/sse`), and durable event streams with optional authentication enforcement (`secure: true`).
+- **`monitoring`**: Telemetry and observability engine. Exposes real-time Server-Sent Events (SSE) telemetry streams (`/monitor/stream`), metrics aggregations (`/monitor/metrics`), buffered event querying (`/monitor/events`), and health probes (`/health`) with distributed `X-Request-ID` correlation.
+- **`adminUi`**: Deploys a zero-code administrative portal authenticated via sealed HttpOnly session cookies.
 
-To develop all apps and packages, run the following command:
+---
 
-With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended):
+## Community & Resources
 
-```sh
-cd my-turborepo
-turbo dev
-```
+- **Website**: [cequrebackends.com](https://cequrebackends.com)
+- **Documentation**: [docs.cequrebackends.com](https://docs.cequrebackends.com)
+- **GitHub Issues**: [Report Bugs & Feature Requests](https://github.com/cequrebackends/cequre/issues)
 
-Without global `turbo`, use your package manager:
+---
 
-```sh
-cd my-turborepo
-npx turbo dev
-bun exec turbo dev
-bun exec turbo dev
-```
+## License
 
-You can develop a specific package by using a [filter](https://turborepo.dev/docs/crafting-your-repository/running-tasks#using-filters):
-
-With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed:
-
-```sh
-turbo dev --filter=web
-```
-
-Without global `turbo`:
-
-```sh
-npx turbo dev --filter=web
-bun exec turbo dev --filter=web
-bun exec turbo dev --filter=web
-```
-
-### Remote Caching
-
-> [!TIP]
-> Vercel Remote Cache is free for all plans. Get started today at [vercel.com](https://vercel.com/signup?utm_source=remote-cache-sdk&utm_campaign=free_remote_cache).
-
-Turborepo can use a technique known as [Remote Caching](https://turborepo.dev/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup?utm_source=turborepo-examples), then enter the following commands:
-
-With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended):
-
-```sh
-cd my-turborepo
-turbo login
-```
-
-Without global `turbo`, use your package manager:
-
-```sh
-cd my-turborepo
-npx turbo login
-bun exec turbo login
-bun exec turbo login
-```
-
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
-
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
-
-With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed:
-
-```sh
-turbo link
-```
-
-Without global `turbo`:
-
-```sh
-npx turbo link
-bun exec turbo link
-bun exec turbo link
-```
-
-## Useful Links
-
-Learn more about the power of Turborepo:
-
-- [Tasks](https://turborepo.dev/docs/crafting-your-repository/running-tasks)
-- [Caching](https://turborepo.dev/docs/crafting-your-repository/caching)
-- [Remote Caching](https://turborepo.dev/docs/core-concepts/remote-caching)
-- [Filtering](https://turborepo.dev/docs/crafting-your-repository/running-tasks#using-filters)
-- [Configuration Options](https://turborepo.dev/docs/reference/configuration)
-- [CLI Usage](https://turborepo.dev/docs/reference/command-line-reference)
+Cequre is distributed under the [Cequre Software License](LICENSE). Free for solo builders and small teams (<10 staff).
