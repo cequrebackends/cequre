@@ -158,34 +158,55 @@ Cequre eliminates backend boilerplate by establishing your declarative schema as
 
 ## Schema Syntax Preview
 
-Here is how simple it is to define a secure, production-grade collection in `.cequre`:
+Here is how simple it is to define secure, production-grade collections in `.cequre`:
+
+<p align="center">
+  <img src="./public/collection-dsl.png" alt="Cequre Collection DSL Preview" width="100%" />
+</p>
+
+<details>
+<summary>📋 View raw schema</summary>
 
 ```cequre
+collection users {
+  auth: true;
+  fields {
+    name: text;
+    email: email @unique;
+    password: password;
+    role: select("admin", "user") @default("user");
+  }
+  access {
+    read: true;
+    create: true;
+    update: user.id == id || user.role == "admin";
+    delete: user.role == "admin";
+  }
+}
+
 collection posts {
-  // Field definitions
-  fields: {
+  fields {
     title: text;
     slug: text @unique;
     content: textarea @optional;
     published: boolean @default(false);
     author: relationship("users");
   }
-
-  // Granular Access Control (deny-by-default)
-  access: {
+  access {
     read: true;
     create: user != null;
-    update: user.id == author || user.role == "admin";
+    update: user.id == data.author || user.role == "admin";
     delete: user.role == "admin";
   }
-
-  // Real-time Event Broadcaster
-  realtime: {
+  realtime {
     ws: ["create", "update", "delete"];
     sse: true;
+    durableStream: true;
   }
 }
 ```
+
+</details>
 
 Once defined, Cequre instantly generates:
 
@@ -201,69 +222,53 @@ Once defined, Cequre instantly generates:
 
 Define your backend infrastructure, security perimeter, and management consoles declaratively alongside your schema with a lean `config` block:
 
+<p align="center">
+  <img src="./public/config-dsl.png" alt="Cequre Config DSL Preview" width="60%" />
+</p>
+
+<details>
+<summary>📋 View raw configuration</summary>
+
 ```cequre
 config {
-  // Core runtime settings
-  core: {
-    api: { prefix: "/api"; };
-    openapi: { enabled: true; path: "/api/docs"; };
-    graphql: { enabled: true; path: "/graphql"; };
+  output: "_generated";
+  core {
+    api {
+      prefix: "/api";
+    }
+    graphql {
+      enabled: true;
+      playground: true;
+      introspection: true;
+    }
   }
-
-  // Security perimeter & authentication
-  security: {
-    auth: {
-      strategies: ["jwt"];
-      jwt: {
-        accessTokenExpiry: "15m";
-        refreshTokenExpiry: "7d";
-      };
-    };
-
-    cors: {
+  security {
+    cors {
       origin: ["*"];
       credentials: true;
-    };
-
-    rateLimit: {
-      read: { max: 100; window: "1m"; };
-      write: { max: 20; window: "1m"; };
-    };
-
-    headers: { enabled: true; };
-    secrets: { enabled: true; };
-    audit: { enabled: true; };
+    }
+    auth {
+      strategies: ["jwt"];
+      jwt {
+        accessTokenExpiry: "15m";
+        refreshTokenExpiry: "7d";
+      }
+    }
   }
-
-  // Realtime subscription transport
-  realtime: {
-    enabled: true;
-    ws: true;
-    sse: true;
-    durableStream: false;
-    secure: true;
-  }
-
-  // Live telemetry & health monitoring
-  monitoring: {
+  monitoring {
     enabled: true;
     apiKey: env("MONITORING_API_KEY");
-    healthCheck: {
-      enabled: true;
+    healthCheck {
       path: "/health";
-      requiresAuth: false;
-    };
-    requestId: { enabled: true; };
+    }
   }
-
-  // Sealed Platform Admin Console
-  adminUi: {
-    enabled: true;
+  adminUi {
     collection: "admins";
-    title: "Cequre Admin Console";
   }
 }
 ```
+
+</details>
 
 - **`core`**: Configures route prefixing, OpenAPI / Scalar interactive documentation, and native GraphQL engine settings.
 - **`security`**: Hardens the global perimeter with JWT session management, CORS policies, KV-backed read/write rate limiting, security headers, secret protection, and tamper-evident audit logging.
