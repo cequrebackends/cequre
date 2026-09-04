@@ -160,14 +160,8 @@ Cequre eliminates backend boilerplate by establishing your declarative schema as
 
 Here is how simple it is to define secure, production-grade collections in `.cequre`:
 
-<p align="center">
-  <img src="./public/collection-dsl.png" alt="Cequre Collection DSL Preview" width="100%" />
-</p>
-
-<details>
-<summary>📋 View raw schema</summary>
-
-```cequre
+```ts
+// cequre/collections/users.cequre
 collection users {
   auth: true;
   fields {
@@ -184,6 +178,7 @@ collection users {
   }
 }
 
+// cequre/collections/posts.cequre
 collection posts {
   fields {
     title: text;
@@ -206,8 +201,6 @@ collection posts {
 }
 ```
 
-</details>
-
 Once defined, Cequre instantly generates:
 
 1. Typed REST CRUD endpoints (`GET /api/posts`, `POST /api/posts`, etc.).
@@ -222,14 +215,8 @@ Once defined, Cequre instantly generates:
 
 Define your backend infrastructure, security perimeter, and management consoles declaratively alongside your schema with a lean `config` block:
 
-<p align="center">
-  <img src="./public/config-dsl.png" alt="Cequre Config DSL Preview" width="60%" />
-</p>
-
-<details>
-<summary>📋 View raw configuration</summary>
-
-```cequre
+```ts
+// cequre/config.cequre
 config {
   output: "_generated";
   core {
@@ -267,8 +254,6 @@ config {
   }
 }
 ```
-
-</details>
 
 - **`core`**: Configures route prefixing, OpenAPI / Scalar interactive documentation, and native GraphQL engine settings.
 - **`security`**: Hardens the global perimeter with JWT session management, CORS policies, KV-backed read/write rate limiting, security headers, secret protection, and tamper-evident audit logging.
