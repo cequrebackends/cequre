@@ -4,7 +4,7 @@
 > Write your schema once. Compile a typed, secure, production-ready backend in seconds on native Bun with zero-migration database sync, built-in MCP agent integration, and an instant Admin Console.
 
 [![Website](https://img.shields.io/badge/website-cequrebackends.com-blue)](https://cequrebackends.com)
-[![Documentation](https://img.shields.io/badge/docs-docs.cequrebackends.com-purple)](https://docs.cequrebackends.com)
+[![Documentation](https://img.shields.io/badge/docs-cloud.cequrebackends.com-purple)](https://cloud.cequrebackends.com)
 [![License](https://img.shields.io/badge/license-Cequre%20Software%20License-black)](LICENSE)
 
 ---
@@ -266,7 +266,7 @@ config {
 ## Community & Resources
 
 - **Website**: [cequrebackends.com](https://cequrebackends.com)
-- **Documentation**: [docs.cequrebackends.com](https://docs.cequrebackends.com)
+- **Documentation**: [cloud.cequrebackends.com](https://cloud.cequrebackends.com)
 - **GitHub Issues**: [Report Bugs & Feature Requests](https://github.com/cequrebackends/cequre/issues)
 
 ---
