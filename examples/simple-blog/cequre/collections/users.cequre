@@ -1,0 +1,18 @@
+collection users {
+	auth: true;
+	fields {
+		name: text;
+		email: email @unique;
+		password: password @optional;
+		googleId: text @optional @unique;
+		role: select("admin", "user") @default("user");
+		bio: text @optional;
+		avatar: text @optional;
+	}
+	access {
+		read: true;
+		create: true;
+		update: user.id == id || user.role == "admin";
+		delete: user.role == "admin";
+	}
+}

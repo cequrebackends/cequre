@@ -1,9 +1,21 @@
 import { defineConfig } from "vite";
-import babel from "@rolldown/plugin-babel";
+import solid from "@solidjs/vite-plugin";
 import tailwindcss from "@tailwindcss/vite";
-import react, { reactCompilerPreset } from "@vitejs/plugin-react";
+import { fileRoutes } from "filesystem-routing/vite";
 
-// https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(), tailwindcss(), babel({ presets: [reactCompilerPreset()] })],
+  plugins: [
+    tailwindcss(),
+    solid({
+      start: {
+        devtools: false,
+      },
+      ssr: true,
+      serverFunctions: true,
+    }),
+    fileRoutes({ types: true }),
+  ],
+  server: {
+    port: 5173,
+  },
 });

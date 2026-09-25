@@ -5,15 +5,19 @@
     "lib": [
       "ES2023"
     ],
-    "module": "nodenext",
+    "module": "esnext",
     "moduleDetection": "force",
+    "moduleResolution": "bundler",
     "noEmit": true,
     "noFallthroughCasesInSwitch": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
     "paths": {
       "cequre-ts": [
         "./cequre/_generated/runtime/cequre"
+      ],
+      "cequre-ts/testing": [
+        "./cequre/_generated/runtime/testing"
       ]
     },
     "skipLibCheck": true,
@@ -26,6 +30,7 @@
   },
   "include": [
     "vite.config.ts",
-    "cequre"
+    "cequre",
+    "tests"
   ]
 }

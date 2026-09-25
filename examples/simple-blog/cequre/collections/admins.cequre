@@ -1,0 +1,16 @@
+collection admins {
+	auth: true;
+	fields {
+		name: text;
+		email: email @unique;
+		password: password;
+		role: select("super", "editor") @default("editor");
+		avatar: text @optional;
+	}
+	access {
+		read: user.role == "super";
+		create: user.role == "super";
+		update: user.id == id || user.role == "super";
+		delete: user.role == "super";
+	}
+}

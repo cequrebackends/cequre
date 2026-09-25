@@ -1,0 +1,19 @@
+collection posts {
+	fields {
+		title: text;
+		slug: text @unique;
+		summary: textarea @optional;
+		content: textarea;
+		coverImage: text @optional;
+		category: select("Technology", "Design", "Engineering", "Architecture", "Culture") @default("Technology");
+		readingTime: integer @default(3);
+		published: boolean @default(true);
+		author: relationship("users");
+	}
+	access {
+		read: true;
+		create: user != null;
+		update: user.id == data.author || user.role == "admin";
+		delete: user != null;
+	}
+}

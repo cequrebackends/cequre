@@ -1,0 +1,8 @@
+{
+  "audit": {
+    "enabled": true,
+    "retentionDays": 30,
+    "source": "ui",
+    "updatedAt": "2026-09-06T17:42:57.850Z"
+  }
+}

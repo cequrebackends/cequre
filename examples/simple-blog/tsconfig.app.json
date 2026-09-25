@@ -3,7 +3,8 @@
     "allowArbitraryExtensions": true,
     "allowImportingTsExtensions": true,
     "erasableSyntaxOnly": true,
-    "jsx": "react-jsx",
+    "jsx": "preserve",
+    "jsxImportSource": "@solidjs/web",
     "lib": [
       "ES2023",
       "DOM"
@@ -13,23 +14,33 @@
     "moduleResolution": "bundler",
     "noEmit": true,
     "noFallthroughCasesInSwitch": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
     "paths": {
+      "@/*": [
+        "./src/*"
+      ],
       "cequre-ts": [
         "./cequre/_generated/runtime/cequre"
+      ],
+      "cequre-ts/testing": [
+        "./cequre/_generated/runtime/testing"
       ]
     },
     "skipLibCheck": true,
     "target": "es2023",
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
     "types": [
-      "vite/client"
+      "vite/client",
+      "node"
     ],
     "verbatimModuleSyntax": true
   },
   "include": [
     "src",
-    "cequre"
+    "vite-env.d.ts",
+    "file-routes.d.ts",
+    "cequre",
+    "tests"
   ]
 }

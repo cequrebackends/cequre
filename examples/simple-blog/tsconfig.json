@@ -3,6 +3,9 @@
     "paths": {
       "cequre-ts": [
         "./cequre/_generated/runtime/cequre"
+      ],
+      "cequre-ts/testing": [
+        "./cequre/_generated/runtime/testing"
       ]
     }
   },

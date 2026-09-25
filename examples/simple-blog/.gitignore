@@ -11,6 +11,7 @@ node_modules
 dist
 dist-ssr
 *.local
+.playwright-cli
 
 # Editor directories and files
 .vscode/*
@@ -30,4 +31,3 @@ uploads/
 .env
 
 cequre/_generated/
-examples
