@@ -12,7 +12,7 @@ Write your data models, access policies, and durable workflows once in `.cequre`
 [![VS Code Marketplace](https://img.shields.io/badge/VS%20Code-Cequre%20Extension-007ACC)](https://marketplace.visualstudio.com/items?itemName=cequrebackends.vscode-cequre)
 [![License](https://img.shields.io/badge/license-Cequre%20Software%20License-18181b)](LICENSE)
 
-[Documentation](https://docs.cequrebackends.com/docs/core) · [TypeScript Guide](https://docs.cequrebackends.com/docs/ts) · [Workflows](https://docs.cequrebackends.com/docs/ts/workflows) · [AI & MCP](https://docs.cequrebackends.com/mcp) · [Releases](https://github.com/cequrebackends/cequre/releases) · [LLM Context (`llm.txt`)](https://docs.cequrebackends.com/llm.txt)
+[Documentation](https://docs.cequrebackends.com/docs/core) · [TypeScript Guide](https://docs.cequrebackends.com/docs/ts) · [Workflows](https://docs.cequrebackends.com/docs/ts/workflows) · [AI & MCP](https://docs.cequrebackends.com/mcp) · [Releases](https://github.com/cequrebackends/cequre/releases)
 
 </div>
 
@@ -308,11 +308,6 @@ Connect Antigravity, Cursor, Claude Code, Windsurf, or any MCP-compatible assist
 ```
 
 Agents gain verified tools for schema modeling (`cequre_schema` including `WORKFLOW`), TypeScript routes/hooks/workflow handlers (`cequre_routes`, `cequre_code`), access rules (`cequre_security`), database sync (`cequre_database`), SDK artifacts (`cequre_artifacts`), testing (`cequre_test`), and ephemeral deploy previews (`cequre_deploy`).
-
-Full AI context bundles are also published at:
-- [docs.cequrebackends.com/llm.txt](https://docs.cequrebackends.com/llm.txt) (complete)
-- [docs.cequrebackends.com/llm-core.txt](https://docs.cequrebackends.com/llm-core.txt) (Core DSL & CLI)
-- [docs.cequrebackends.com/llm-ts.txt](https://docs.cequrebackends.com/llm-ts.txt) (Core + TypeScript on Bun)
 
 ---
 
